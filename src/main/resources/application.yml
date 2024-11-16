@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: limcasoft
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: 'jdbc:mysql://localhost:3306/limcasoft'
+    username: root
+    password: 
+  main:
+    banner-mode: 'off'
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+logging:
+  level:
+    org:
+      springframework: ERROR
+  pattern:
+    dateformat: 'hh:mm'
+server:
+  port: 8080
+ 
