@@ -9,72 +9,85 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import java.util.List;
-
 
 @Entity
 @Table(name = "customers")
 public class Customer {
-  
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-  
-  @Column(unique = true)
-  private String name;
-  
-  private String lastName;
-  
-  private String email;
-  private String phone;
-  private String address;
-  private String documentType;
-  private String document;
-  
-  @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
-  @JsonIgnore
-  private List<Reservation> reservations;
-  
-  // Getters y setters
-  public Long getId() {
-    return id;
-  }
-  
-  public void setId(Long id) {
-    this.id = id;
-  }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Pattern(regexp = "^[A-Za-zñÑáéíóúÁÉÍÓÚ ]{2,50}$", message = "Nombre no válido. Sólo debe contener letras")
+    @NotEmpty(message = "El nombre es requerido")
+    private String name;
+    @Pattern(regexp = "^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+ [A-Za-zñÑáéíóúÁÉÍÓÚ ]+$", message = "El apellido no es válido.")
+    @NotEmpty(message = "Los apellidos son requeridos")
+    private String lastName;
+    @Pattern(regexp = "^[\\w]+([\\.\\+\\w]+)?@([\\w-]+\\.)+[a-zzA-Z]{2,}$", message = "El correo no es válido.")
+    @NotEmpty(message = "El correo es requerido")
+    @Column(unique = true)
+    private String email;
+    @Pattern(regexp = "[0-9]+$", message = "Debe contener sólo números.")
+    @NotEmpty(message = "El número es requerido")
+    private String phone;
+    @Pattern(regexp = "^[a-zA-Z0-9\\s]+$", message = "La dirección no es válida.")
+    @NotEmpty(message = "La dirección es requerida")
+    private String address;
+    @Pattern(regexp = "^[a-zA-Z]{2,3}$", message = "Tipo de documento inválido.")
+    @NotEmpty(message = "El tipo de documento es requerido")
+    private String documentType;
+    @Column(unique = true)
+    @Pattern(regexp = "[0-9]+$", message = "Debe contener sólo números.")
+    @NotEmpty(message = "El documento es requerido")
+    private String document;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Reservation> reservations;
+
+    // Getters y setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
-  
-  public String getName() {
-    return name;
-  }
-  
-  public String getLastName() {
-  return lastName;
-}
 
-public void setLastName(String lastName) {
-  this.lastName = lastName;
-}
+    public String getName() {
+        return name;
+    }
 
-public String getEmail() {
-  return email;
-}
+    public String getLastName() {
+        return lastName;
+    }
 
-public void setEmail(String email) {
-  this.email = email;
-}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-public List<Reservation> getReservations() {
-  return reservations;
-}
+    public String getEmail() {
+        return email;
+    }
 
-public void setReservations(List<Reservation> reservations) {
-  this.reservations = reservations;
-}
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 
     public String getPhone() {
         return phone;
