@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.util.Date;
+import jakarta.validation.constraints.Pattern;
 
 
 @Entity
@@ -17,14 +17,13 @@ public class Reservation {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  
-  private Date checkInDate;
-  
-  private Date checkOutDate;
+  @Pattern(regexp = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$", message = "La fecha no es válida.")
+  private String checkInDate;
+  @Pattern(regexp = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$", message = "La fecha no es válida.")
+  private String checkOutDate;
   
   @ManyToOne
   @JoinColumn(name = "room_id")
-//  @JsonIgnore
   private Room room;
   
   @ManyToOne
@@ -41,19 +40,19 @@ public class Reservation {
     this.id = id;
   }
   
-  public Date getCheckInDate() {
+  public String getCheckInDate() {
     return checkInDate;
   }
   
-  public void setCheckInDate(Date checkInDate) {
+  public void setCheckInDate(String checkInDate) {
     this.checkInDate = checkInDate;
   }
   
-  public Date getCheckOutDate() {
+  public String getCheckOutDate() {
     return checkOutDate;
   }
   
-  public void setCheckOutDate(Date checkOutDate) {
+  public void setCheckOutDate(String checkOutDate) {
     this.checkOutDate = checkOutDate;
   }
   
