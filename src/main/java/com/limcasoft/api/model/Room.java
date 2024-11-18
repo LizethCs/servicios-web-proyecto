@@ -10,6 +10,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import java.util.List;
 
 
@@ -20,11 +24,16 @@ public class Room {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-  
+  @Min(value = 1, message = "Valor mínimo 1")
+  @Max(value = 140, message = "Valor máximo 140")
+  @NotNull(message = "Valor requerido")
+  @Column(unique = true)
   private Integer number;
-  
+@Pattern(regexp = "^(individual|doble|familiar)$", message = "Sólo debe contener letras")
   private String type;
-  
+  @Min(value = 40000, message = "Valor mínimo 40000")
+  @Max(value = 250000, message = "Valor máximo 250000")
+  @NotNull(message = "Valor requerido")
   private Integer price;
   
   @ManyToOne
