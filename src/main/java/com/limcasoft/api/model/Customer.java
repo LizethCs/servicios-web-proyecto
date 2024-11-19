@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
@@ -25,6 +26,7 @@ public class Customer {
     private String name;
     @Pattern(regexp = "^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+ [A-Za-zñÑáéíóúÁÉÍÓÚ ]+$", message = "El apellido no es válido.")
     @NotEmpty(message = "Los apellidos son requeridos")
+    @Column(name = "last_name")
     private String lastName;
     @Pattern(regexp = "^[\\w]+([\\.\\+\\w]+)?@([\\w-]+\\.)+[a-zzA-Z]{2,}$", message = "El correo no es válido.")
     @NotEmpty(message = "El correo es requerido")
@@ -44,8 +46,9 @@ public class Customer {
     @NotEmpty(message = "El documento es requerido")
     private String document;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.MERGE)
     @JsonIgnore
+
     private List<Reservation> reservations;
 
     // Getters y setters

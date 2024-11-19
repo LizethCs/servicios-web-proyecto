@@ -36,10 +36,10 @@ public class CustomerController {
     return customerService.createCustomer(customer);
   }
   
-  @PutMapping("/{id}")
-  public Customer updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
+@PutMapping("/update")
+public Customer updateCustomer(@RequestBody Customer customer) {
     return customerService.updateCustomer(customer);
-  }
+}
   
   @DeleteMapping("/{id}")
   public void deleteCustomer(@PathVariable Long id) {

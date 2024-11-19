@@ -27,10 +27,23 @@ public class CustomerService {
     public Customer createCustomer(Customer customer) {
         return customerRepository.save(customer);
     }
-
-    public Customer updateCustomer(Customer customer) {
-        return customerRepository.save(customer);
+public Customer updateCustomer(Customer customer) {
+    Customer existingCustomer = customerRepository.findById(customer.getId()).orElseThrow();
+    existingCustomer.setName(customer.getName());
+    existingCustomer.setLastName(customer.getLastName());
+    existingCustomer.setEmail(customer.getEmail());
+    existingCustomer.setPhone(customer.getPhone());
+    existingCustomer.setAddress(customer.getAddress());
+    existingCustomer.setDocumentType(customer.getDocumentType());
+    existingCustomer.setDocument(customer.getDocument());
+    
+    if (customer.getReservations() != null) {
+        existingCustomer.getReservations().clear();
+        existingCustomer.getReservations().addAll(customer.getReservations());
     }
+    
+    return customerRepository.save(existingCustomer);
+}
 
     public void deleteCustomer(Long id) {
         customerRepository.deleteById(id);

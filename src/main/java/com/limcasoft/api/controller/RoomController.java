@@ -35,8 +35,8 @@ public class RoomController {
         return roomService.createRoom(room);
     }
 
-    @PutMapping("/{id}")
-    public Room updateRoom(@PathVariable Long id, @RequestBody Room room) {
+    @PutMapping("/update")
+    public Room updateRoom(@RequestBody Room room) {
         return roomService.updateRoom(room);
     }
 

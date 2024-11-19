@@ -25,7 +25,7 @@ public class Hotel {
     @Pattern(regexp = "^[a-zA-Z0-9\\s]+$", message = "La dirección no es válida.")
     private String address;
 
-    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, orphanRemoval = false)
     @JsonIgnore
     private List<Room> rooms;
 
