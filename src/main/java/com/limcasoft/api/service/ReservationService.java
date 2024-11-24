@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 package com.limcasoft.api.service;
 
 import com.limcasoft.api.model.Reservation;
@@ -11,30 +6,29 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class ReservationService {
-  
-  @Autowired
-  private ReservationRepository reservationRepository;
-  
-  public List<Reservation> getAllReservations() {
-    return reservationRepository.findAll();
-  }
-  
-  public Reservation getReservationById(Long id) {
-    return reservationRepository.findById(id).orElseThrow();
-  }
-  
-  public Reservation createReservation(Reservation reservation) {
-    return reservationRepository.save(reservation);
-  }
-  
-  public Reservation updateReservation(Reservation reservation) {
-    return reservationRepository.save(reservation);
-  }
-  
-  public void deleteReservation(Long id) {
-    reservationRepository.deleteById(id);
-  }
+
+    @Autowired
+    private ReservationRepository reservationRepository;
+
+    public List<Reservation> getAllReservations() {
+        return reservationRepository.findAll();
+    }
+
+    public Reservation getReservationById(Long id) {
+        return reservationRepository.findById(id).orElseThrow();
+    }
+
+    public Reservation createReservation(Reservation reservation) {
+        return reservationRepository.save(reservation);
+    }
+
+    public Reservation updateReservation(Reservation reservation) {
+        return reservationRepository.save(reservation);
+    }
+
+    public void deleteReservation(Long id) {
+        reservationRepository.deleteById(id);
+    }
 }

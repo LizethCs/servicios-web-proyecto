@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.limcasoft.api.service;
 
 import com.limcasoft.api.model.Customer;
@@ -27,23 +23,24 @@ public class CustomerService {
     public Customer createCustomer(Customer customer) {
         return customerRepository.save(customer);
     }
-public Customer updateCustomer(Customer customer) {
-    Customer existingCustomer = customerRepository.findById(customer.getId()).orElseThrow();
-    existingCustomer.setName(customer.getName());
-    existingCustomer.setLastName(customer.getLastName());
-    existingCustomer.setEmail(customer.getEmail());
-    existingCustomer.setPhone(customer.getPhone());
-    existingCustomer.setAddress(customer.getAddress());
-    existingCustomer.setDocumentType(customer.getDocumentType());
-    existingCustomer.setDocument(customer.getDocument());
-    
-    if (customer.getReservations() != null) {
-        existingCustomer.getReservations().clear();
-        existingCustomer.getReservations().addAll(customer.getReservations());
+
+    public Customer updateCustomer(Customer customer) {
+        Customer existingCustomer = customerRepository.findById(customer.getId()).orElseThrow();
+        existingCustomer.setName(customer.getName());
+        existingCustomer.setLastName(customer.getLastName());
+        existingCustomer.setEmail(customer.getEmail());
+        existingCustomer.setPhone(customer.getPhone());
+        existingCustomer.setAddress(customer.getAddress());
+        existingCustomer.setDocumentType(customer.getDocumentType());
+        existingCustomer.setDocument(customer.getDocument());
+
+        if (customer.getReservations() != null) {
+            existingCustomer.getReservations().clear();
+            existingCustomer.getReservations().addAll(customer.getReservations());
+        }
+
+        return customerRepository.save(existingCustomer);
     }
-    
-    return customerRepository.save(existingCustomer);
-}
 
     public void deleteCustomer(Long id) {
         customerRepository.deleteById(id);
