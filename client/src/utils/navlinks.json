@@ -1,0 +1,8 @@
+[
+    { "href": "#servicios", "text": "Servicios" },
+    { "href": "#habitaciones", "text": "Habitaciones" },
+    { "href": "#precios", "text": "Precios" },
+    { "href": "/reservar", "text": "Reservar" },
+    { "href": "#contacto", "text": "Contacto" },
+    {"href":"/reservas", "text":"Consultar/Editar reservas"}
+  ]

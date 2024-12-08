@@ -1,0 +1,98 @@
+*{
+    font-family: 'Montserrat';
+  }
+  
+  body{
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      background-color: #eef2ff; 
+      font-size:large;
+  }
+  
+  input, select,.input-height{
+      font-size: medium; }
+  
+  h1,p{
+    text-align: center;
+    color: #39393b  }
+  
+  h1{
+      font-weight: lighter;
+      padding-top: 40px;
+  }
+  
+  form{
+      margin:30px auto 0 auto;
+      width: 50%;
+      background-color: #686bf1;
+     color: white; 
+     padding: 30px 30px 60px 30px;
+     border-radius: 5px;
+  
+  }
+  label{
+      display: block;
+       margin:10px 0;
+  }
+  fieldset{
+      border: none;
+  
+  }
+  
+  .input-height,select{
+      width:100%;
+      margin: 13px  0 20px 0;
+      height:34px;
+      border-radius: 5px;
+      border:none;
+      
+  }
+  input{
+      width:100%;
+      padding: 4px 10px;
+  }
+  
+  .inline{
+      width: unset;
+      margin: 0 0.5em 0 0;
+      vertical-align: middle;
+  }
+  .check-label{
+      margin-bottom: 20px;
+  }
+  .sub-label{
+      margin-top: 24px;
+      margin-bottom: 20px;
+  }
+  
+  button{
+     margin: 15px auto 0 auto;
+     display: block;
+     padding: 13px; 
+     color: rgb(54, 56, 54);
+     background: #fff;
+     border: none;
+     width: 100%;
+     font-size: medium;
+     border-radius: 5px;
+  }
+
+  .habitacion{
+    width:100%;
+    padding:20px;
+    border-radius:8px;
+    margin-bottom:10px;
+    background-color:#686bf1;
+    color:white;
+    cursor:pointer;
+  }
+
+  .hab-cont{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+

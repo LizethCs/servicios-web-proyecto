@@ -1,0 +1,217 @@
+*{
+    font-family:'Montserrat', Verdana, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  body{
+    background-color:#eef2ff;  
+    overflow-x: hidden; 
+  }
+  .medium{
+    font-size:0.85em;
+  }
+  
+  
+  li::marker{
+    content: none;
+  }
+  header{
+    border-bottom: 2px solid #e0e7ff;
+    background-color:#eef2ff;
+    position:sticky;
+    top:0px;
+    padding: 5px 0;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  #logo{
+    width:4.7rem;
+    padding-top:3px;
+    margin-right:2rem;
+    margin-top: 0.5rem;
+  }
+  
+  .nav-item{
+    padding:0.8rem; 
+  }
+  
+  .nav-link{
+    color:inherit;
+  
+  }
+  
+  .nav-link:hover{
+    cursor:pointer;
+    color:#6366f1;
+    font-weight: bold;
+  }
+  
+  #links{
+    display:flex;
+    justify-content: center;
+  }
+  
+  .menu-btn{
+    cursor:pointer;
+    background-color:unset;
+    border:none;
+    width:3.1rem;
+    position: absolute;
+    right:0.6em;
+    top:0.2em; 
+    visibility: hidden; 
+  }
+  
+  @media only screen and (min-width:885px){
+  #links{ 
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  
+  #logo{
+  position:absolute;
+  top:-0.5rem;
+  right:91.3%;
+  }
+  }
+  .img-container{
+      background-image: url('https://res.cloudinary.com/dx9mnazdx/image/upload/v1721428060/lasjw-guestroom-0112-hor-pano_hbuqab.webp');
+      background-size:cover;
+      background-position:center;
+      color: #2f2f47;
+      font-size:1.50rem;
+      padding:4rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .h-1{
+      font-size:130%;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-align: center;
+      letter-spacing:3px;
+    
+    }
+  
+    .flex{
+      display:flex;
+    }
+  
+    .text{
+      color:#6a6d74;
+      text-align: center;
+      font-size:0.8em;
+    }
+  
+    .btn-htl{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+
+    .btn-edt{
+      width:100px;
+      height:70px;
+    }
+
+    .item{
+      border-bottom:2px solid #e0e7ff;
+      margin-top:0.69rem;
+      flex-direction:column;
+      flex-wrap:wrap;
+      justify-content:space-evenly;
+      align-items:center;
+      gap:1rem;
+      padding:10px;
+    }
+  
+  
+    .card{
+      width:60%;
+      height:100%;
+      padding:1rem;
+      border:2px solid #e0e7ff;
+      gap:1.6rem;
+    }
+    .card:hover{
+      background-color:#dee5fe;
+      cursor:pointer;
+    }
+  
+    .title{
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-top: 1rem;
+    }
+  
+    img{
+      cursor:pointer;
+    }
+  
+    .room{
+      width:60%;
+      height:100%;
+      margin-left:20%;
+    }
+  
+    .round{
+      border-radius:10px;
+    }
+  
+    .rsrv-button{
+     background-color: #686bf1;
+     border:none;
+     padding:0.8em;
+     color:#fff;  
+     margin-top:0;
+    }
+    .rsrv-button:hover{
+      background-color: #5154f7;
+      filter: drop-shadow(1px 1px 8px #797676);
+     }
+  
+   footer{
+    background-color: #6366f1;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+   }
+  
+  
+  .contact{
+    color:#eef2ff73;
+  }
+  figure{
+    margin-bottom:3%;
+  }
+  @media only screen and (max-width:721px){
+        .menu-btn{
+          visibility:visible;
+        }
+      }
+  
+      @media only screen and (min-width: 560px) {
+    
+        .img-container{
+          font-size: 2.30rem;
+          padding:12rem;
+        }
+        .service{
+          width:40%;
+          height:40%;
+        }
+  
+        .room{
+          width:90%;
+          margin-left:3%;
+        }
+    }
