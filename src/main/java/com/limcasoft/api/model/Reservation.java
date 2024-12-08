@@ -70,4 +70,19 @@ public class Reservation {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Reservation{");
+        sb.append("id=").append(id);
+        sb.append(", checkInDate=").append(checkInDate);
+        sb.append(", checkOutDate=").append(checkOutDate);
+        sb.append(", room=").append(room);
+        sb.append(", customer=").append(customer);
+        sb.append('}');
+        return sb.toString();
+    }
+    
+    
 }

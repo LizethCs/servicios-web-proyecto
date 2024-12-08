@@ -122,4 +122,22 @@ public class Customer {
     public void setDocument(String document) {
         this.document = document;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Customer{");
+        sb.append("id=").append(id);
+        sb.append(", name=").append(name);
+        sb.append(", lastName=").append(lastName);
+        sb.append(", email=").append(email);
+        sb.append(", phone=").append(phone);
+        sb.append(", address=").append(address);
+        sb.append(", documentType=").append(documentType);
+        sb.append(", document=").append(document);
+        sb.append(", reservations=").append(reservations);
+        sb.append('}');
+        return sb.toString();
+    }
+    
 }

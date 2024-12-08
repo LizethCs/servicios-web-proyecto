@@ -1,6 +1,7 @@
 package com.limcasoft.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -93,4 +94,19 @@ public class Room {
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Room{");
+        sb.append("id=").append(id);
+        sb.append(", number=").append(number);
+        sb.append(", type=").append(type);
+        sb.append(", price=").append(price);
+        sb.append(", hotel=").append(hotel);
+        sb.append(", reservations=").append(reservations);
+        sb.append('}');
+        return sb.toString();
+    }
+
 }

@@ -61,4 +61,17 @@ public class Hotel {
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Hotel{");
+        sb.append("id=").append(id);
+        sb.append(", name=").append(name);
+        sb.append(", address=").append(address);
+        sb.append(", rooms=").append(rooms);
+        sb.append('}');
+        return sb.toString();
+    }
+
 }

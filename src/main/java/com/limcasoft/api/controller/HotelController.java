@@ -5,6 +5,7 @@ import com.limcasoft.api.service.HotelService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,6 +32,7 @@ public class HotelController {
     public ResponseEntity<List<Hotel>> getHotels(@RequestHeader("Authorization") String authorization) {
         if (validateCredentials(authorization)) {
             List<Hotel> hotels = hotelService.getAllHotels();
+            System.out.println("Hotels: " + hotels); // Punto de depuración
             return ResponseEntity.ok(hotels);
         } else {
             return ResponseEntity.status(401).build();
